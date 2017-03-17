@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8" /> 
+    <title>
+       Login Page
+    </title>
+     <title>Home</title>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/camera.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-migrate-1.2.1.js"></script>
+
+    <!--[if lt IE 9]>
+    <html class="lt-ie9">
+    <div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://windows.microsoft.com/en-US/internet-explorer/..">
+            <img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820"
+                 alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."/>
+        </a> 
+    </div>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+ 
+    <script src='js/device.min.js'></script> 
+    
+</head>
+<body>
+<div class="page">
+    <!--========================================================
+                              HEADER
+    =========================================================-->
+    <header>
+
+        <div class="camera_container">
+            <div id="camera" class="camera_wrap">
+                <div data-thumb="images/slide01_thumb.jpg" data-src="images/slide01.jpg">
+                    <div class="camera_caption fadeIn">
+                    </div>
+                </div>
+                <div data-thumb="images/slide02_thumb.jpg" data-src="images/slide02.jpg">
+                    <div class="camera_caption fadeIn">
+                    </div>
+                </div>
+                <div data-thumb="images/slide03_thumb.jpg" data-src="images/slide03.jpg">
+                    <div class="camera_caption fadeIn">
+                    </div>
+                </div>
+            </div>
+
+            <div class="brand wow fadeIn">
+                <h1 class="brand_name">
+                    <a href="./">Pizza</a>
+                </h1>
+            </div>
+        </div>
+        
+        <div class="toggle-menu-container">
+            <nav class="nav">
+                <div class="nav_title"></div>
+                <a class="sf-menu-toggle fa fa-bars" href="#"></a>
+                <ul class="sf-menu">
+                    <li class="active">
+                        <a href="./">Home</a>
+                    </li>
+                    <li>
+                        <a href="index-1.html">About</a>
+                        <ul>
+                            <li>
+                                <a href="#">Quisque nulla</a>
+                            </li>
+                            <li>
+                                <a href="#">Vestibulum libero</a>
+                                <ul>
+                                    <li>
+                                        <a href="#">Lorem</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Dolor</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Sit amet</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Vivamus eget nibh</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="index-2.html">What We Do</a>
+                    </li>
+                    <li>
+                        <a href="index-3.html">Menu</a>
+                    </li>
+                    <li>
+                        <a href="index-4.html">Contacts</a>
+                    </li>
+                    <li>
+                        <a href="login.html">Login</a>
+                    </li>
+                     <li>
+                        <a href="signup.html">Sign up</a>
+                    </li>
+                </ul>
+            </nav>            
+        </div>
+
+    </header>
+<form action="registration.php" method="POST" enctype="multipart/form-data" class="form-horizontal col-lg-6">
+  <h1> Sign Up</h1>
+  <div class="inset">
+
+  <div class="form-group">
+    <label for="user" class="control-label col-sm-2">USER NAME</label>
+    <div class="col-sm-10">
+    <input type="text" name="username" id="username" class="form-control"/>  
+   
+ </div>
+ </div>
+    <div class="form-group">
+    <label for="email" class="control-label col-sm-2">E-MAIL</label>
+    <div class="col-sm-10">
+    <input type="text" name="email" id="email" class="form-control"/>  
+    
+    </div>
+</div>
+  <div class="form-group">
+    <label for="password" class="control-label col-sm-2">PASSWORD</label>
+    <div class="col-sm-10">
+   <input type="password" autocomplete="off" name="password" id="password" class="form-control"/>
+</div>
+</div>
+   
+
+
+<div class="form-group">
+<div class="col-sm-offset-2 col-sm-10">
+  	<span id ="Emptyfield"></span>
+      <input type="submit" name="go" id="go" value="registration" class="btn btn-default">
+      </div>
+      </div>
+</div>
+</form>
+
+<footer>
+        <div class="container">
+            <ul class="socials">
+                <li><a href="./wwww.facebook.com" class="fa fa-facebook"></a></li>
+                <li><a href="./wwww.tumblr.com" class="fa fa-tumblr"></a></li>
+                <li><a href="./plus.google.com" class="fa fa-google-plus"></a></li>
+            </ul>
+            <div class="copyright">© <span id="copyright-year"></span> |
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+     
+    </footer>
+</div>
+
+<script src="js/script.js"></script>
+
+
+
+<script type="text/javascript">
+
+         $(document).ready(function(){
+            $("#username").bind("keyup focusout",function(){
+                 $("#message").html("<img src='images/loadings.gif' /> checking...");
+             
+ 
+            var username=$("#username").val();
+ 
+              $.ajax({
+                    type:"post",
+                    url:"check.php",
+                    data:"username="+username,
+                        success:function(data){
+                        if(data==0){
+                            $("#message").html("<img src='images/Yes.png' /> Username available");
+                        }
+                        else{
+                            $("#message").html("<img src='images/cross.png' /> Username already taken");
+                        }
+                    }
+                 });
+ 
+            });
+ 
+         });
+ 
+ $('form').submit(function () {
+ // Get the Login Name value and trim it
+        	    var result=0;
+        	    var msg="";
+        	    var name = $.trim($('#username').val());
+        	    var email = $('input[name=email]').val();
+        	    if (!/(.+)@(.+){2,}\.(.+){2,}/.test(email)) {
+        	    	result=2;
+        	   
+        	    }
+
+        	    // Check if empty of not
+        	    if (name  === '') {
+        	    	result=result+1;
+        	        
+        	        
+        	    }
+        	    switch(result)
+        	    {
+        	    case 1:msg="<h3>User name field Empty</h3>";
+        	             $("#Emptyfield").html(msg);
+        	           return false; 
+        	    case 2:msg="<h3>Check for proper E-Mail entry</h3>";
+        	           $("#Emptyfield").html(msg);
+        	           return false;
+        	    case 3:msg="<h3>User name field Empty and Check for proper E-Mail entry</h3>"
+        	    	$("#Emptyfield").html(msg);
+        	    	return false;
+        	    }
+});      
+</script>
+</body>
+</html>
